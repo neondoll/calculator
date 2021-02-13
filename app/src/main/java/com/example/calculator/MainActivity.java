@@ -2,6 +2,7 @@ package com.example.calculator;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,9 +21,9 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // получаем все поля по id из activity_main.xml
-        resultField = (TextView) findViewById(R.id.resultField);
-        numberField = (EditText) findViewById(R.id.numberField);
-        operationField = (TextView) findViewById(R.id.operationField);
+        resultField = findViewById(R.id.resultField);
+        numberField = findViewById(R.id.numberField);
+        operationField = findViewById(R.id.operationField);
     }
 
     // сохранение состояния
@@ -35,6 +36,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     // получение ранее сохраненного состояния
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -74,8 +76,8 @@ public class MainActivity extends FragmentActivity {
         operationField.setText(lastOperation);
     }
 
+    @SuppressLint("SetTextI18n")
     private void performOperation(Double number, String operation) {
-
         // если операнд ранее не был установлен (при вводе самой первой операции)
         if (operand == null) {
             operand = number;

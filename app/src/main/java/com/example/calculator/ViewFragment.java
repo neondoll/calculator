@@ -11,7 +11,6 @@ public class ViewFragment extends Fragment {
     @Override
     // Переопределяем метод onCreateView
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.view_fragment, container, false);
-        return view;
+        return inflater.inflate(R.layout.view_fragment, container, false);
     }
 }
